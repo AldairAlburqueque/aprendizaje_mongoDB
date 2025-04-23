@@ -1,0 +1,18 @@
+use("UrbanStyle_store")
+
+/* $eq
+
+Se utiliza para comparar si un valor es igual a otro valor especificado. Es una abreviatura del término "equals" (igualdad) y generalmente se usa en consultas para seleccionar documentos donde un campo tiene un valor específico.
+
+*/
+
+db.products.find(
+    {
+        tipo: { $eq: "Caballero"}
+    },
+    {
+        _id: 0,
+        nombre: 1,
+        tipo: 1
+    }
+)
