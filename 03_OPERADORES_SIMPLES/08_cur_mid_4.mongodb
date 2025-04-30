@@ -1,0 +1,18 @@
+use("baticell_store");
+
+//Queremos agrupar las ventas por sucursal , calcular el total de ventas mensuales de cada sucursal, ordenarlas de mayor a menor y proyectar solo la sucursal y el total de ventas
+
+db.sellers
+  .aggregate([
+    {
+      $group: {
+        _id: "$sucursal",
+        totalVentas: { $sum: "$metas.ventasMensuales" },
+      },
+    },
+    { $sort: { totalVentas: -1 } },
+    { $project: { _id: 0, sucursal: "$_id", totalVentas: 1 } },
+  ])
+  .toArray();
+
+// $group: Agrupa los vendedores por sucursal y suma las ventasMensuales de cada vendedor en esa sucursal.

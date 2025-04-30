@@ -1,0 +1,3 @@
+use("baticell_store");
+
+// Listado del nombre y apellido del cliente concatenado, el nombre del producto que ha comprado, la cantidad y el precio unitario

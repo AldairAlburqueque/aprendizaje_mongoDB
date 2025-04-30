@@ -1,0 +1,472 @@
+// Empezamos a crear una base de datos
+use("baticell_store");
+
+// Eliminar todos los documentos de colección clients
+db.clients.drop();
+
+// Insertar 10 documentos en colección clients
+db.clients.insertMany([
+  {
+    nombre: "Laura",
+    apellidos: "Santos",
+    email: "laura.santos@gmail.com",
+    telefono: "999888777",
+    direccion: "Calle Principal 45, San Luis",
+    fechaRegistro: ISODate("2024-01-10T00:00:00Z"),
+    modeloFavorito: "iPhone 13",
+    historialCompras: [
+      {
+        producto: "iPhone 13",
+        fecha: ISODate("2024-02-01T00:00:00Z"),
+        cantidad: 1,
+      },
+    ],
+    suscripciones: ["Novedades Apple", "Ofertas Especiales"],
+    activo: true,
+    puntos: 200,
+  },
+  {
+    nombre: "Marcos",
+    apellidos: "Gutiérrez",
+    email: "marcos.gutierrez@yahoo.com",
+    telefono: "988777666",
+    direccion: "Avenida Central 67, Breña",
+    fechaRegistro: ISODate("2024-01-15T00:00:00Z"),
+    modeloFavorito: "Samsung Galaxy S21",
+    historialCompras: [
+      {
+        producto: "Samsung Galaxy S21",
+        fecha: ISODate("2024-02-10T00:00:00Z"),
+        cantidad: 1,
+      },
+    ],
+    suscripciones: ["Novedades Samsung", "Ofertas Especiales"],
+    activo: true,
+    puntos: 250,
+  },
+  {
+    nombre: "Ana",
+    apellidos: "López",
+    email: "ana.lopez@gmail.com",
+    telefono: "977666555",
+    direccion: "Calle Secundaria 89, San Luis",
+    fechaRegistro: ISODate("2024-02-05T00:00:00Z"),
+    modeloFavorito: "Google Pixel 6",
+    historialCompras: [
+      {
+        producto: "Google Pixel 6",
+        fecha: ISODate("2024-02-15T00:00:00Z"),
+        cantidad: 1,
+      },
+    ],
+    suscripciones: ["Novedades Google", "Ofertas Especiales"],
+    activo: true,
+    puntos: 300,
+  },
+  {
+    nombre: "José",
+    apellidos: "Martínez",
+    email: "jose.martinez@outlook.com",
+    telefono: "966555444",
+    direccion: "Avenida Libertad 101, San Borja",
+    fechaRegistro: ISODate("2024-01-20T00:00:00Z"),
+    modeloFavorito: "OnePlus 9 Pro",
+    historialCompras: [
+      {
+        producto: "OnePlus 9 Pro",
+        fecha: ISODate("2024-02-20T00:00:00Z"),
+        cantidad: 1,
+      },
+    ],
+    suscripciones: ["Novedades OnePlus", "Ofertas Especiales"],
+    activo: true,
+    puntos: 350,
+  },
+  {
+    nombre: "Carmen",
+    apellidos: "Díaz",
+    email: "carmen.diaz@gmail.com",
+    telefono: "955444333",
+    direccion: "Calle Flores 111, San Luis",
+    fechaRegistro: ISODate("2024-02-25T00:00:00Z"),
+    modeloFavorito: "Xiaomi Mi 11",
+    historialCompras: [
+      {
+        producto: "Xiaomi Mi 11",
+        fecha: ISODate("2024-03-01T00:00:00Z"),
+        cantidad: 1,
+      },
+    ],
+    suscripciones: ["Novedades Xiaomi", "Ofertas Especiales"],
+    activo: true,
+    puntos: 400,
+  },
+  {
+    nombre: "Daniela",
+    apellidos: "García",
+    email: "daniela.garcia@yahoo.com",
+    telefono: "933222111",
+    direccion: "Avenida Central 123, Breña",
+    fechaRegistro: ISODate("2024-03-01T00:00:00Z"),
+    modeloFavorito: "iPhone 12 Pro",
+    historialCompras: [
+      {
+        producto: "iPhone 12 Pro",
+        fecha: ISODate("2024-03-10T00:00:00Z"),
+        cantidad: 1,
+      },
+    ],
+    suscripciones: ["Novedades Apple", "Ofertas Especiales"],
+    activo: true,
+    puntos: 180,
+  },
+  {
+    nombre: "Fernando",
+    apellidos: "Rodríguez",
+    email: "fernando.rodriguez@gmail.com",
+    telefono: "944333222",
+    direccion: "Calle Secundaria 456, Miraflores",
+    fechaRegistro: ISODate("2024-03-05T00:00:00Z"),
+    modeloFavorito: "Samsung Galaxy Note 20",
+    historialCompras: [
+      {
+        producto: "Samsung Galaxy Note 20",
+        fecha: ISODate("2024-03-15T00:00:00Z"),
+        cantidad: 1,
+      },
+    ],
+    suscripciones: ["Novedades Samsung", "Ofertas Especiales"],
+    activo: true,
+    puntos: 220,
+  },
+  {
+    nombre: "Lucía",
+    apellidos: "Pérez",
+    email: "lucia.perez@yahoo.com",
+    telefono: "955444333",
+    direccion: "Boulevard Central 789, San Borja",
+    fechaRegistro: ISODate("2024-03-10T00:00:00Z"),
+    modeloFavorito: "Google Pixel 5a",
+    historialCompras: [
+      {
+        producto: "Google Pixel 5a",
+        fecha: ISODate("2024-03-20T00:00:00Z"),
+        cantidad: 1,
+      },
+    ],
+    suscripciones: ["Novedades Google", "Ofertas Especiales"],
+    activo: true,
+    puntos: 260,
+  },
+  {
+    nombre: "Martín",
+    apellidos: "Gómez",
+    email: "martin.gomez@gmail.com",
+    telefono: "996555444",
+    direccion: "Avenida Libertad 101, Surco",
+    fechaRegistro: ISODate("2024-03-15T00:00:00Z"),
+    modeloFavorito: "OnePlus Nord 2",
+    historialCompras: [
+      {
+        producto: "OnePlus Nord 2",
+        fecha: ISODate("2024-03-25T00:00:00Z"),
+        cantidad: 1,
+      },
+    ],
+    suscripciones: ["Novedades OnePlus", "Ofertas Especiales"],
+    activo: true,
+    puntos: 300,
+  },
+  {
+    nombre: "Cristina",
+    apellidos: "Ramírez",
+    email: "cristina.ramirez@outlook.com",
+    telefono: "997666555",
+    direccion: "Calle Flores 111, La Molina",
+    fechaRegistro: ISODate("2024-03-20T00:00:00Z"),
+    modeloFavorito: "Xiaomi Redmi Note 10",
+    historialCompras: [
+      {
+        producto: "Xiaomi Redmi Note 10",
+        fecha: ISODate("2024-03-30T00:00:00Z"),
+        cantidad: 1,
+      },
+    ],
+    suscripciones: ["Novedades Xiaomi", "Ofertas Especiales"],
+    activo: true,
+    puntos: 340,
+  },
+]);
+
+// Cantidad de documentos insertados
+db.clients.find().count();
+
+//////////////////////////////////////
+
+// Empezamos a crear una base de datos
+use("baticell_store");
+
+// Eliminar todos los documentos de colección products
+db.products.drop();
+
+// Insertar 10 documentos en colección products
+db.products.insertMany([
+  {
+    nombre: "Huawei P40 Pro",
+    descripcion: "Huawei P40 Pro con 256GB de almacenamiento.",
+    marca: "Huawei",
+    especificaciones: {
+      pantalla: "6.58 pulgadas",
+      procesador: "Kirin 990",
+      ram: "8 GB",
+      almacenamiento: "256 GB",
+      bateria: "4200 mAh",
+      sistema_operativo: "Android 10",
+    },
+    imei: "456789123012345",
+    categoria: "Smartphone",
+    cantidad: 45,
+    precio_unitario: 999.99,
+    coloresDisponibles: ["Negro", "Blanco", "Azul"],
+    accesoriosIncluidos: ["Cargador", "Cable USB-C", "Funda"],
+  },
+  {
+    nombre: "Sony Xperia 1 III",
+    descripcion: "Sony Xperia 1 III con 256GB de almacenamiento.",
+    marca: "Sony",
+    especificaciones: {
+      pantalla: "6.5 pulgadas",
+      procesador: "Snapdragon 888",
+      ram: "12 GB",
+      almacenamiento: "256 GB",
+      bateria: "4500 mAh",
+      sistema_operativo: "Android 11",
+    },
+    imei: "567890234512345",
+    categoria: "Smartphone",
+    cantidad: 20,
+    precio_unitario: 1199.99,
+    coloresDisponibles: ["Negro", "Violeta"],
+    accesoriosIncluidos: ["Cargador", "Cable USB-C", "Auriculares"],
+  },
+  {
+    nombre: "Oppo Find X3 Pro",
+    descripcion: "Oppo Find X3 Pro con 256GB de almacenamiento.",
+    marca: "Oppo",
+    especificaciones: {
+      pantalla: "6.7 pulgadas",
+      procesador: "Snapdragon 888",
+      ram: "12 GB",
+      almacenamiento: "256 GB",
+      bateria: "4500 mAh",
+      sistema_operativo: "Android 11",
+    },
+    imei: "678901345612345",
+    categoria: "Smartphone",
+    cantidad: 30,
+    precio_unitario: 1099.99,
+    coloresDisponibles: ["Negro", "Azul", "Plata"],
+    accesoriosIncluidos: ["Cargador", "Cable USB-C", "Funda", "Auriculares"],
+  },
+  {
+    nombre: "Nokia 8.3 5G",
+    descripcion: "Nokia 8.3 5G con 128GB de almacenamiento.",
+    marca: "Nokia",
+    especificaciones: {
+      pantalla: "6.81 pulgadas",
+      procesador: "Snapdragon 765G",
+      ram: "8 GB",
+      almacenamiento: "128 GB",
+      bateria: "4500 mAh",
+      sistema_operativo: "Android 10",
+    },
+    imei: "789012456712345",
+    categoria: "Smartphone",
+    cantidad: 25,
+    precio_unitario: 649.99,
+    coloresDisponibles: ["Azul", "Negro"],
+    accesoriosIncluidos: ["Cargador", "Cable USB-C", "Manual"],
+  },
+  {
+    nombre: "Asus ROG Phone 5",
+    descripcion: "Asus ROG Phone 5 con 512GB de almacenamiento.",
+    marca: "Asus",
+    especificaciones: {
+      pantalla: "6.78 pulgadas",
+      procesador: "Snapdragon 888",
+      ram: "16 GB",
+      almacenamiento: "512 GB",
+      bateria: "6000 mAh",
+      sistema_operativo: "Android 11",
+    },
+    imei: "890123567812345",
+    categoria: "Smartphone",
+    cantidad: 15,
+    precio_unitario: 1299.99,
+    coloresDisponibles: ["Negro", "Blanco"],
+    accesoriosIncluidos: ["Cargador", "Cable USB-C", "Cooling Fan"],
+  },
+  {
+    nombre: "Samsung Galaxy Note 20",
+    descripcion: "Samsung Galaxy Note 20 con 256GB de almacenamiento.",
+    marca: "Samsung",
+    especificaciones: {
+      pantalla: "6.7 pulgadas",
+      procesador: "Exynos 990",
+      ram: "8 GB",
+      almacenamiento: "256 GB",
+      bateria: "4300 mAh",
+      sistema_operativo: "Android 10",
+    },
+    imei: "123456780123456",
+    categoria: "Smartphone",
+    cantidad: 35,
+    precio_unitario: 950.99,
+    coloresDisponibles: ["Negro", "Bronce"],
+    accesoriosIncluidos: ["Cargador", "Cable USB-C", "S Pen"],
+  },
+  {
+    nombre: "iPhone 12 Pro",
+    descripcion: "Apple iPhone 12 Pro con 256GB de almacenamiento.",
+    marca: "Apple",
+    especificaciones: {
+      pantalla: "6.1 pulgadas",
+      procesador: "A14 Bionic",
+      ram: "6 GB",
+      almacenamiento: "256 GB",
+      bateria: "2815 mAh",
+      sistema_operativo: "iOS 14",
+    },
+    imei: "234567891234567",
+    categoria: "Smartphone",
+    cantidad: 50,
+    precio_unitario: 1099.99,
+    coloresDisponibles: ["Grafito", "Oro", "Plata", "Azul Pacífico"],
+    accesoriosIncluidos: ["Cargador", "Cable USB-C"],
+  },
+  {
+    nombre: "Xiaomi Redmi Note 10",
+    descripcion: "Xiaomi Redmi Note 10 con 128GB de almacenamiento.",
+    marca: "Xiaomi",
+    especificaciones: {
+      pantalla: "6.43 pulgadas",
+      procesador: "Snapdragon 678",
+      ram: "4 GB",
+      almacenamiento: "128 GB",
+      bateria: "5000 mAh",
+      sistema_operativo: "Android 11",
+    },
+    imei: "345678901234567",
+    categoria: "Smartphone",
+    cantidad: 40,
+    precio_unitario: 249.99,
+    coloresDisponibles: ["Verde", "Blanco", "Gris"],
+    accesoriosIncluidos: ["Cargador", "Cable USB-C", "Funda"],
+  },
+  {
+    nombre: "Google Pixel 5a",
+    descripcion: "Google Pixel 5a con 128GB de almacenamiento.",
+    marca: "Google",
+    especificaciones: {
+      pantalla: "6.34 pulgadas",
+      procesador: "Snapdragon 765G",
+      ram: "6 GB",
+      almacenamiento: "128 GB",
+      bateria: "4680 mAh",
+      sistema_operativo: "Android 11",
+    },
+    imei: "456789012345678",
+    categoria: "Smartphone",
+    cantidad: 30,
+    precio_unitario: 449.99,
+    coloresDisponibles: ["Negro"],
+    accesoriosIncluidos: ["Cargador", "Cable USB-C", "Manual"],
+  },
+  {
+    nombre: "OnePlus Nord 2",
+    descripcion: "OnePlus Nord 2 con 128GB de almacenamiento.",
+    marca: "OnePlus",
+    especificaciones: {
+      pantalla: "6.43 pulgadas",
+      procesador: "Dimensity 1200-AI",
+      ram: "8 GB",
+      almacenamiento: "128 GB",
+      bateria: "4500 mAh",
+      sistema_operativo: "Android 11",
+    },
+    imei: "567890123456789",
+    categoria: "Smartphone",
+    cantidad: 25,
+    precio_unitario: 399.99,
+    coloresDisponibles: ["Azul", "Gris"],
+    accesoriosIncluidos: ["Cargador", "Cable USB-C", "Funda", "Auriculares"],
+  },
+]);
+
+// Cantidad de documentos insertados
+db.products.find().count();
+
+//////////////////////////////////////////
+
+// Empezamos a crear una base de datos
+use("baticell_store");
+
+// Eliminar todos los documentos de colección sellers
+db.sellers.drop();
+
+// Insertar 10 documentos en colección sellers
+db.sellers.insertMany([
+  {
+    nombre: "Miguel",
+    apellidos: "Hernández",
+    email: "miguel.hernandez@baticellstore.com",
+    telefono: "921654987",
+    sucursal: "Sucursal Norte",
+    fechaIngreso: ISODate("2023-06-10T00:00:00Z"),
+    metas: { ventasMensuales: 50000, clientesNuevos: 30 },
+    productosPreferidos: ["iPhone 13", "Samsung Galaxy S21"],
+  },
+  {
+    nombre: "Ana",
+    apellidos: "González",
+    email: "ana.gonzalez@baticellstore.com",
+    telefono: "987654321",
+    sucursal: "Sucursal Sur",
+    fechaIngreso: ISODate("2023-07-15T00:00:00Z"),
+    metas: { ventasMensuales: 45000, clientesNuevos: 25 },
+    productosPreferidos: ["Google Pixel 6", "OnePlus 9 Pro"],
+  },
+  {
+    nombre: "Carlos",
+    apellidos: "Pérez",
+    email: "carlos.perez@baticellstore.com",
+    telefono: "954321987",
+    sucursal: "Sucursal Este",
+    fechaIngreso: ISODate("2023-08-20T00:00:00Z"),
+    metas: { ventasMensuales: 55000, clientesNuevos: 35 },
+    productosPreferidos: ["Xiaomi Mi 11", "Huawei P40 Pro"],
+  },
+  {
+    nombre: "Elena",
+    apellidos: "Martínez",
+    email: "elena.martinez@baticellstore.com",
+    telefono: "923456789",
+    sucursal: "Sucursal Oeste",
+    fechaIngreso: ISODate("2023-09-05T00:00:00Z"),
+    metas: { ventasMensuales: 60000, clientesNuevos: 40 },
+    productosPreferidos: ["Sony Xperia 1 III", "Oppo Find X3 Pro"],
+  },
+  {
+    nombre: "Luis",
+    apellidos: "Ramírez",
+    email: "luis.ramirez@baticellstore.com",
+    telefono: "989456123",
+    sucursal: "Sucursal Norte",
+    fechaIngreso: ISODate("2023-10-01T00:00:00Z"),
+    metas: { ventasMensuales: 48000, clientesNuevos: 28 },
+    productosPreferidos: ["Nokia 8.3 5G", "Asus ROG Phone 5"],
+  },
+]);
+
+// Cantidad de documentos insertados
+db.sellers.find().count();

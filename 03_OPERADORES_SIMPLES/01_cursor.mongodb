@@ -1,0 +1,9 @@
+/* Cursores
+
+-- Es un objeto temporal que apunta a un conjuto de resultados de una consulta.
+
+-- Se generan automáticamente cuando haces consultas con métodos como find y/o aggregate. 
+
+-- Si hay pocos resultados, el cursor devuelve todos los documentos a la vez
+
+-- Si hay muchos documentos, el cursos devuelve los resultados por lote. */

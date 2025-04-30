@@ -1,0 +1,11 @@
+use("baticell_store");
+
+// Filtra vendedores de la "Sucursal Norte", ordena por apellidos, y muestra la segunda página (suponiendo un tamaño de página de 2 resultados).
+db.sellers
+  .aggregate([
+    { $match: { sucursal: "Sucursal Norte" } },
+    { $sort: { apellidos: 1 } },
+    { $skip: 1 },
+    { $limit: 1 },
+  ])
+  .toArray();

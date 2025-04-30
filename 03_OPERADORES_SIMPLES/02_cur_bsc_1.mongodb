@@ -1,0 +1,7 @@
+use("baticell_store");
+
+// Queremos contar cuántos clientes están registrados en la base de datos que tienen más de 300 puntos.
+const cursor = db.clients.find({ puntos: { $gt: 300 } });
+
+const totalClientes = cursor;
+"El total es: " + totalClientes;
