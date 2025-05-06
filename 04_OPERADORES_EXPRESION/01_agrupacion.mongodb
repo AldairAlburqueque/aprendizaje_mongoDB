@@ -1,0 +1,24 @@
+use("baticell_store");
+
+// db.clients.aggregate([
+//   { $sort: { fechaRegistro: 1 } },
+//   {
+//     $group: {
+//       _id: null,
+//       pClient: { $first: "$nombre" },
+//       fClient: { $last: "$nombre" },
+//     },
+//   },
+// ]);
+
+db.products.aggregate([
+  {
+    $group: {
+      _id: null,
+      totalCantidad: { $sum: "$cantidad" },
+      precioMaximo: { $max: "$precio_unitario" },
+      precioMinimo: { $min: "$precio_unitario" },
+      promedio: { $avg: "$precio_unitario" },
+    },
+  },
+]);

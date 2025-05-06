@@ -1,4 +1,4 @@
-use("baticell_store");
+ use("baticell_store");
 
 //Queremos agrupar las ventas por sucursal , calcular el total de ventas mensuales de cada sucursal, ordenarlas de mayor a menor y proyectar solo la sucursal y el total de ventas
 
