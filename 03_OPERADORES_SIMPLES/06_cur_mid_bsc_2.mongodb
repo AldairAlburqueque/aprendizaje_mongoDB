@@ -10,7 +10,7 @@ db.products
       },
     },
     { $sort: { totalCantidad: -1 } },
-    { $limit: 3 },
+    { $limit: 4 },
   ])
   .toArray();
 

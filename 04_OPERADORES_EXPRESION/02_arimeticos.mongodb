@@ -1,0 +1,5 @@
+use("baticell_store");
+
+db.clients.aggregate({
+  $project: { _id: 0 },
+});

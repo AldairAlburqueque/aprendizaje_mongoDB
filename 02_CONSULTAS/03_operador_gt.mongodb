@@ -1,5 +1,5 @@
 // Empezamos a crear una base de datos UrbanStyle Store
-use("UrbanStyle_store")
+use("UrbanStyle_store");
 
 /* $gt >
 Es parte de los operadores de comparación y se
@@ -10,14 +10,15 @@ de "greater than" (mayor que).
 */
 
 // Listar todos los productos cuya cantidad sea mayor que 100
-db.products.find(
+db.products
+  .find(
     { cantidad: { $gt: 100 } }, // filtrado
     {
-        _id: 0,
-        nombre: 1,
-        marca: 1,
-        cantidad: 1,
-        sucursal: 1
+      _id: 0,
+      nombre: 1,
+      marca: 1,
+      cantidad: 1,
+      sucursal: 1,
     }
-
-).count()
+  )
+  .count();

@@ -1,0 +1,26 @@
+// Empezamos a crear una base de datos
+use("baticell_store");
+
+// Une los productos comprados por cada cliente con los detalles del producto desde la colección products
+
+db.clients.aggregate([
+  { $unwind: "$historialCompras" },
+  {
+    $lookup: {
+      from: "products",
+      localField: "historialCompras.producto",
+      foreignField: "nombre",
+      as: "productoInfo",
+    },
+  },
+  { $unwind: "$productoInfo" },
+  {
+    $project: {
+      _id: 0,
+      cliente: { $concat: ["$nombre", " ", "$apellidos"] },
+      producto: "$productoInfo.nombre",
+      cantidad: "$historialCompras.cantidad",
+      precio_unitario: "$productoInfo.precio_unitario",
+    },
+  },
+]);
