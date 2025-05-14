@@ -1,0 +1,12 @@
+use("baticell_store");
+
+//Actualizar documento
+db.products.updateOne(
+  { _id: 1 },
+  {
+    $set: { name: "iPhone", precio: 4000 },
+  }
+);
+
+//Listar documentos
+db.products.find();

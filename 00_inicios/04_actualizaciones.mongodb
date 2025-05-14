@@ -1,0 +1,12 @@
+use("baticell_store");
+
+//Asignar a todos los equipos el precio de 5000
+db.products.updateMany(
+  {},
+  {
+    $set: { precio: 5000 },
+  }
+);
+
+//Listar documentos
+db.products.find();

@@ -1,0 +1,12 @@
+use("baticell_store");
+
+//Eliminar valores de atributos
+db.products.updateMany(
+  { _id: 3 },
+  {
+    $unset: { precio: "" },
+  }
+);
+
+//Listar documentos
+db.products.find();
