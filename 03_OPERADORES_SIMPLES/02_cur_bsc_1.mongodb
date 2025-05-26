@@ -5,3 +5,4 @@ const cursor = db.clients.find({ puntos: { $gt: 300 } });
 
 const totalClientes = cursor;
 "El total es: " + totalClientes;
+

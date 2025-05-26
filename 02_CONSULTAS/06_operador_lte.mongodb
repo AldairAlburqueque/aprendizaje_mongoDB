@@ -1,6 +1,5 @@
 // Empezamos a crear una base de datos UrbanStyle Store
-use("UrbanStyle_store")
-
+use("UrbanStyle_store");
 
 /* $lte
 El operador significa "menor o igual que" (less than or equal). 
@@ -10,14 +9,15 @@ donde el valor de un campo sea menor o igual al valor especificado
 */
 
 // Listar todos los productos cuyo precio es menor e igual que 50
-db.products.find(
+db.products
+  .find(
     { precio: { $lte: 50 } },
     {
-        _id: 0,
-        nombre: 1,
-        marca: 1,
-        precio: 1,
-        cantidad: 1
+      _id: 0,
+      nombre: 1,
+      marca: 1,
+      precio: 1,
+      cantidad: 1,
     }
-)
-
+  )
+  .explain();

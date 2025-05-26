@@ -6,7 +6,7 @@ db.clients.drop();
 
 // Insertar 10 documentos en colección products
 db.clients.insertMany([
-  {
+  { 
     nombre: "Carlos",
     apellidos: "Mendoza",
     email: "carlos.mendoza@gmail.com",
